@@ -16,9 +16,10 @@ class App extends Component {
     const oldTitle = this.state.pageTitle
     const newTitle = oldTitle + ' (changed)'
 
-    this.setState = ({
+    this.setState({
       pageTitle: newTitle
     })
+    console.log('hi');
   }
 
   render() {
