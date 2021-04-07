@@ -14,10 +14,10 @@ import React from 'react'
 //   </div>
 // )
 
-export default (props) => (
+// eslint-disable-next-line import/no-anonymous-default-export
+export default props => (
   <div>
      <h3>Car {props.name}</h3>
      <p>Year: <strong>{props.year}</strong></p>
-    {props.children}
   </div>
 )
