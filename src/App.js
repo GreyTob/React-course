@@ -6,6 +6,7 @@ class App extends Component {
   render() {
     const st = {
       textAlign: 'center',
+      color: 'blue'
     }
 
     return (
