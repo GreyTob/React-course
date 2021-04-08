@@ -30,7 +30,7 @@ class App extends Component {
       color: 'darkgray'
     }
 
-    const cars = this.state.cars
+    // const cars = this.state.cars
 
     return (
       <div className="App" style={st}>
@@ -41,18 +41,29 @@ class App extends Component {
           onClick={this.changeTitleHandler.bind(this, 'changed!')}
         >change page title</button>
 
-        <Car
-          name={cars[0].name}
-          year={cars[0].year}
-          onChangeTItle={this.changeTitleHandler.bind(this, cars[0].name)} />
-        <Car
-          name={cars[1].name}
-          year={cars[1].year}
-          onChangeTItle={() => this.changeTitleHandler(cars[1].name)} />
-        <Car
-          name={cars[2].name}
-          year={cars[2].year}
-          onChangeTItle={this.changeTitleHandler.bind(this, cars[2].name)} />
+        { this.state.cars.map((car, index) => {
+          return (
+            <Car
+              key={index}
+              name={car.name}
+              year={car.year}
+              onChangeTitle={() => this.changeTitleHandler(car.name)}
+            />
+          )
+        }) }
+
+        {/*<Car*/}
+        {/*  name={cars[0].name}*/}
+        {/*  year={cars[0].year}*/}
+        {/*  onChangeTItle={this.changeTitleHandler.bind(this, cars[0].name)} />*/}
+        {/*<Car*/}
+        {/*  name={cars[1].name}*/}
+        {/*  year={cars[1].year}*/}
+        {/*  onChangeTItle={() => this.changeTitleHandler(cars[1].name)} />*/}
+        {/*<Car*/}
+        {/*  name={cars[2].name}*/}
+        {/*  year={cars[2].year}*/}
+        {/*  onChangeTItle={this.changeTitleHandler.bind(this, cars[2].name)} />*/}
       </div>
 
     )
