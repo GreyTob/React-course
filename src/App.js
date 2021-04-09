@@ -10,17 +10,18 @@ class App extends Component {
       {name: 'mersedes', year: 2015},
     ],
     pageTitle: 'React components',
+    showCars: false,
+  }
+
+  toggleCarsHandler = () => {
+    this.setState( {
+      showCars: !this.state.showCars
+    } )
   }
 
   changeTitleHandler = newTitle => {
     this.setState({
       pageTitle: newTitle
-    })
-  }
-
-  handleInput = (event) => {
-    this.setState({
-      pageTitle: event.target.value
     })
   }
 
@@ -30,56 +31,33 @@ class App extends Component {
       color: 'darkgray'
     }
 
-    // const cars = this.state.cars
+    let cars = null
+    if(this.state.showCars) {
+      cars = this.state.cars.map((car, index) => {
+        return (
+          <Car
+            key={index}
+            name={car.name}
+            year={car.year}
+            onChangeTitle={() => this.changeTitleHandler(car.name)}
+          />
+        )
+      })
+    }
 
     return (
       <div className="App" style={st}>
         <h1>{this.state.pageTitle}</h1>
-        <input type="text" onChange={this.handleInput}/>
 
         <button
-          onClick={this.changeTitleHandler.bind(this, 'changed!')}
-        >change page title</button>
+          onClick={this.toggleCarsHandler}
+        >toggle cars</button>
 
-        { this.state.cars.map((car, index) => {
-          return (
-            <Car
-              key={index}
-              name={car.name}
-              year={car.year}
-              onChangeTitle={() => this.changeTitleHandler(car.name)}
-            />
-          )
-        }) }
+        { cars }
 
-        {/*<Car*/}
-        {/*  name={cars[0].name}*/}
-        {/*  year={cars[0].year}*/}
-        {/*  onChangeTItle={this.changeTitleHandler.bind(this, cars[0].name)} />*/}
-        {/*<Car*/}
-        {/*  name={cars[1].name}*/}
-        {/*  year={cars[1].year}*/}
-        {/*  onChangeTItle={() => this.changeTitleHandler(cars[1].name)} />*/}
-        {/*<Car*/}
-        {/*  name={cars[2].name}*/}
-        {/*  year={cars[2].year}*/}
-        {/*  onChangeTItle={this.changeTitleHandler.bind(this, cars[2].name)} />*/}
       </div>
 
     )
-    // return React.createElement(
-    //   //формируем код: <div className="App">  <h1>Hello world!</h1> </div>
-    //   'div',
-    //   {
-    //     className: 'App',
-    //   },
-    //   React.createElement(
-    //     'h1',
-    //     null,
-    //     'Hello world!'
-    //   ),
-    //
-    // )
   }
 }
 
