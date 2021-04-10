@@ -20,7 +20,6 @@ class App extends Component {
   }
 
   onChangeName = (name, index) => {
-    console.log(name, index)
     const car = this.state.cars[index]
     car.name = name
     const cars = [...this.state.cars]
