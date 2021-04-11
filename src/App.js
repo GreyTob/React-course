@@ -38,7 +38,16 @@ class App extends Component {
     this.setState({ cars })
   }
 
+  componentWillMount() {
+    console.log('App componentWillMount')
+  }
+
+  componentDidMount() {
+    console.log('App componentDidMount')
+  }
+
   render() {
+    console.log('App render')
     const st = {
       textAlign: 'center',
       color: 'darkgray'
