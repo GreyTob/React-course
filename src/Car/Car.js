@@ -4,18 +4,18 @@ import './Car.scss'
 
 class Car extends React.Component{
 
-  componentWillReceiveProps(nextProps, nextContext) {
-    console.log('Car componentWillReceiveProps', nextProps, nextContext)
-  }
+  // componentWillReceiveProps(nextProps, nextContext) {
+  //   console.log('Car componentWillReceiveProps', nextProps, nextContext)
+  // }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     console.log('Car shouldComponentUpdate', nextProps, nextState, nextContext)
     return nextProps.name.trim() !== this.props.name.trim()
   }
 
-  componentWillUpdate(nextProps, nextState, nextContext) {
-    console.log('Car componentWillUpdate', nextProps, nextState, nextContext)
-  }
+  // componentWillUpdate(nextProps, nextState, nextContext) {
+  //   console.log('Car componentWillUpdate', nextProps, nextState, nextContext)
+  // }
 
   static getDerivedStateFromProps(nextProps, prevState) {
     console.log('Car getDerivedStateFromProps', nextProps, prevState)
@@ -37,6 +37,11 @@ class Car extends React.Component{
 
   render() {
     console.log('Car render')
+
+    if (Math.random() > 0.7) {
+      throw new Error('Car random failed')
+    }
+
     const inputClasses = ['input']
 
     if(this.props.name !== '') {
