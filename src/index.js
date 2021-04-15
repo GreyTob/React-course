@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App title={'I am parametr from index.js '} />
   </React.StrictMode>,
   document.getElementById('root')
 );

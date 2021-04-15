@@ -56,7 +56,8 @@ class App extends Component {
 
     return (
       <div className="App" style={st}>
-        <h1>{this.state.pageTitle}</h1>
+        {/*<h1>{this.state.pageTitle}</h1>*/}
+        <h1>{this.props.title}</h1>
 
         <button
           onClick={this.toggleCarsHandler}
