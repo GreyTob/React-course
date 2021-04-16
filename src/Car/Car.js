@@ -1,9 +1,30 @@
 import React from 'react'
-import classes from './Car.module.scss'
-import Radium from 'radium'
+import './Car.scss'
+// import Radium from 'radium'
 
 class Car extends React.Component {
+
+  componentWillReceiveProps(nextProps, nextContext) {
+    console.log('Car componentWillReceiveProps', nextProps, nextContext)
+  }
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    console.log('Car shouldComponentUpdate', nextProps, nextState, nextContext)
+
+    return nextProps.name.trim() !== this.props.name.trim()
+  }
+
+  componentWillUpdate(nextProps, nextState, nextContext) {
+    console.log('Car componentWillUpdate', nextProps, nextState, nextContext)
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('Car componentDidUpdate', prevProps, prevState, snapshot)
+  }
+
   render() {
+    console.log('Car render')
+
     const inputClasses = ['input']
 
     if(this.props.name !== '') {
@@ -27,7 +48,7 @@ class Car extends React.Component {
 
 
     return (
-      <div className={classes.Car} style={style}>
+      <div className={'Car'} style={style}>
         <h3>Car name: {this.props.name}</h3>
         <p>Year: <strong>{this.props.year}</strong></p>
         <input
@@ -43,4 +64,4 @@ class Car extends React.Component {
 }
 
 
-export default Radium(Car)
+export default Car
