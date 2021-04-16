@@ -6,6 +6,7 @@
 }
 
 .input {
+    outline: none;
     &:active, .input:focus {
         outline: none;
     }
