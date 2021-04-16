@@ -1,5 +1,5 @@
 import React, { Component} from 'react'
-import './App.scss'
+import classes from '../src/Car/Car.module.scss'
 import Car from './Car/Car'
 
 class App extends Component {
@@ -72,7 +72,7 @@ class App extends Component {
     }
 
     return (
-      <div className="App" style={st}>
+      <div className={classes.App} style={st}>
         {/*<h1>{this.state.pageTitle}</h1>*/}
         <h1>{this.props.title}</h1>
 

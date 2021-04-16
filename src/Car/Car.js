@@ -1,6 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
-import './Car.scss'
+import './Car.module.scss'
 
 const Car = props => {
 
