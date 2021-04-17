@@ -4,22 +4,30 @@ import './Car.scss'
 
 class Car extends React.Component {
 
-  componentWillReceiveProps(nextProps, nextContext) {
-    console.log('Car componentWillReceiveProps', nextProps, nextContext)
-  }
+  // componentWillReceiveProps(nextProps, nextContext) {
+  //   console.log('Car componentWillReceiveProps', nextProps, nextContext)
+  // }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     console.log('Car shouldComponentUpdate', nextProps, nextState, nextContext)
-
     return nextProps.name.trim() !== this.props.name.trim()
   }
 
-  componentWillUpdate(nextProps, nextState, nextContext) {
-    console.log('Car componentWillUpdate', nextProps, nextState, nextContext)
+  // componentWillUpdate(nextProps, nextState, nextContext) {
+  //   console.log('Car componentWillUpdate', nextProps, nextState, nextContext)
+  // }
+
+  static getDerivedStateFromProps(nextProps, prevState){
+    console.log('Car getDerivedStateFromProps', nextProps, prevState)
+    return prevState
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log('Car componentDidUpdate', prevProps, prevState, snapshot)
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log('Car getSnapshotBeforeUpdate')
   }
 
   componentWillUnmount() {
