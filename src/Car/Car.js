@@ -1,43 +1,10 @@
 import React from 'react'
 import './Car.scss'
-// import Radium from 'radium'
+import withClass from "../hoc/withClass"
 
 class Car extends React.Component {
 
-  // componentWillReceiveProps(nextProps, nextContext) {
-  //   console.log('Car componentWillReceiveProps', nextProps, nextContext)
-  // }
-
-  // shouldComponentUpdate(nextProps, nextState, nextContext) {
-  //   console.log('Car shouldComponentUpdate', nextProps, nextState, nextContext)
-  //   return nextProps.name.trim() !== this.props.name.trim()
-  // }
-
-  // componentWillUpdate(nextProps, nextState, nextContext) {
-  //   console.log('Car componentWillUpdate', nextProps, nextState, nextContext)
-  // }
-
-  // static getDerivedStateFromProps(nextProps, prevState){
-  //   console.log('Car getDerivedStateFromProps', nextProps, prevState)
-  //   return prevState
-  // }
-
-  // componentDidUpdate(prevProps, prevState, snapshot) {
-  //   console.log('Car componentDidUpdate', prevProps, prevState, snapshot)
-  // }
-
-  // getSnapshotBeforeUpdate(prevProps, prevState) {
-  //   console.log('Car getSnapshotBeforeUpdate')
-  // }
-
-  // componentWillUnmount() {
-  //   console.log('Car componentWillUnmount')
-  // }
-
   render() {
-    // console.log('Car render')
-
-
 
     const inputClasses = ['input']
 
@@ -52,7 +19,7 @@ class Car extends React.Component {
     }
 
     return (
-      <div className={'Car'}>
+      <React.Fragment>
         <h3>Car name: {this.props.name}</h3>
         <p>Year: <strong>{this.props.year}</strong></p>
         <input
@@ -62,9 +29,9 @@ class Car extends React.Component {
           className={inputClasses.join(' ')}
         />
         <button onClick={this.props.onDelete}>Delete</button>
-      </div>
+      </React.Fragment>
     )
   }
 }
 
-export default Car
+export default withClass(Car, 'Car')
