@@ -3,18 +3,19 @@ import classes from './App.module.scss'
 import Car from './Car/Car'
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary"
 import Counter from "./Counter/Counter"
+import PropTypes from "prop-types"
 
 class App extends Component {
 
   constructor(props) {
-    console.log('App constructor')
+   // console.log('App constructor')
     super(props)
 
     this.state = {
       cars: [
         {name: 'Ford', year: 2019},
-        // {name: 'mazda', year: 2015},
-        // {name: 'mersedes', year: 2015},
+        {name: 'mazda', year: 2015},
+        {name: 'mersedes', year: 2015},
       ],
       pageTitle: 'React components',
       showCars: false,
@@ -100,6 +101,13 @@ class App extends Component {
 
     )
   }
+}
+
+Car.propTypes = {
+  name: PropTypes.string.isRequired,
+  year: PropTypes.number,
+  onDelete: PropTypes.func,
+  onChangeName: PropTypes.func,
 }
 
 export default App
