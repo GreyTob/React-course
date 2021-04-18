@@ -3,7 +3,6 @@ import classes from './App.module.scss'
 import Car from './Car/Car'
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary"
 import Counter from "./Counter/Counter"
-import PropTypes from "prop-types"
 
 class App extends Component {
 
@@ -67,6 +66,7 @@ class App extends Component {
             <Car
               name={car.name}
               year={car.year}
+              index={index}
               onDelete={this.deleteHandler.bind(this, index)}
               onChangeName={(event) => this.onChangeName(event.target.value, index)}
             />
@@ -101,13 +101,6 @@ class App extends Component {
 
     )
   }
-}
-
-Car.propTypes = {
-  name: PropTypes.string.isRequired,
-  year: PropTypes.number,
-  onDelete: PropTypes.func,
-  onChangeName: PropTypes.func,
 }
 
 export default App
